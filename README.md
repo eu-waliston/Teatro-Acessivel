@@ -142,7 +142,7 @@ npm run dev                 # aplicação em http://localhost:5173
 | Variável | Descrição | Padrão |
 |---|---|---|
 | `PORT` | Porta da API | `5000` |
-| `MONGODB_URI` | String de conexão do MongoDB | `mongodb://127.0.0.1:27017/teatro_caixa_preta` |
+| `MONGODB_URI` | String de conexão do MongoDB | `mongodb://127.0.0.1:27017/teatro_acessivel` |
 | `CLIENT_URL` | Origem permitida no CORS | `http://localhost:5173` |
 
 **frontend/.env**
