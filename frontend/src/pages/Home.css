@@ -1,0 +1,39 @@
+.hero {
+  position: relative;
+  padding: 5rem 0 4rem;
+  background: radial-gradient(ellipse 60% 80% at 30% 0%, var(--accent-spotlight-soft), transparent 65%);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.hero-conteudo {
+  max-width: 720px;
+}
+
+.hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--accent-spotlight-strong);
+  font-size: 0.82rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-texto {
+  font-size: 1.1rem;
+  max-width: 560px;
+}
+
+.hero-acoes {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.grade-espetaculos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}

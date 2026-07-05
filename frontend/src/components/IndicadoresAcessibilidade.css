@@ -1,0 +1,59 @@
+.lista-indicadores {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.indicador {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-panel-raised);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem 0.35rem 0.35rem;
+}
+
+.indicador-selo {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--bg-void);
+  background: var(--cor-categoria);
+  flex-shrink: 0;
+}
+
+.indicador-rotulo {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.lista-indicadores--compacta .indicador {
+  padding: 0.25rem 0.6rem 0.25rem 0.25rem;
+}
+
+.lista-indicadores--compacta .indicador-selo {
+  width: 22px;
+  height: 22px;
+  font-size: 0.65rem;
+}
+
+.lista-indicadores--compacta .indicador-rotulo {
+  font-size: 0.78rem;
+}
+
+.dica-sem-recursos {
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  font-style: italic;
+}

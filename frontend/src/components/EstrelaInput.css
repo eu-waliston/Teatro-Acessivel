@@ -1,0 +1,55 @@
+.estrela-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+}
+
+.estrela-grupo {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.estrela-opcao input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.estrela-opcao {
+  position: relative;
+  display: inline-flex;
+}
+
+.estrela-opcao label {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.estrela-opcao input[type='radio']:checked + label,
+.estrela-opcao input[type='radio']:hover + label {
+  color: var(--accent-spotlight);
+}
+
+.estrela-opcao input[type='radio']:focus-visible + label {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Ao passar/focar em uma estrela, destaca também as anteriores (efeito visual comum) */
+.estrela-grupo:hover .estrela-opcao label {
+  color: var(--border);
+}
+.estrela-opcao:hover label,
+.estrela-opcao:has(input:checked) label {
+  color: var(--accent-spotlight);
+}

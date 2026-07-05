@@ -1,0 +1,68 @@
+.cartao-espetaculo {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cartao-espetaculo:hover,
+.cartao-espetaculo:focus-within {
+  border-color: var(--accent-spotlight);
+  box-shadow: 0 0 0 1px var(--accent-spotlight), var(--shadow-spot);
+  transform: translateY(-3px);
+}
+
+.cartao-imagem-link {
+  display: block;
+}
+
+.cartao-imagem {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.cartao-corpo {
+  padding: 1.25rem 1.35rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cartao-data {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-spotlight-strong);
+  font-weight: 700;
+}
+
+.cartao-titulo {
+  margin: 0;
+  font-size: 1.3rem;
+  text-transform: none;
+}
+
+.cartao-titulo a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.cartao-titulo a:hover {
+  color: var(--accent-spotlight-strong);
+}
+
+.cartao-descricao {
+  margin: 0;
+  font-size: 0.92rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cartao-cta {
+  margin-top: 0.75rem;
+  align-self: flex-start;
+}

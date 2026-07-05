@@ -1,0 +1,315 @@
+/* =========================================================
+   TOKENS — inspirados no "black box" do Teatro Caixa Preta:
+   palco neutro e escuro onde a luz (âmbar) guia o olhar.
+   ========================================================= */
+:root {
+  --bg-void: #0b0b0d;
+  --bg-panel: #17171c;
+  --bg-panel-raised: #1f1f26;
+  --border: #2b2b31;
+  --border-soft: #232328;
+
+  --accent-spotlight: #e8a33d;
+  --accent-spotlight-strong: #f4b955;
+  --accent-spotlight-soft: rgba(232, 163, 61, 0.14);
+
+  --accent-libras: #6fb3d9;
+  --accent-info: #8fbf9f;
+  --accent-especial: #c9a6e8;
+
+  --text-primary: #f4f1ea;
+  --text-muted: #aba8a1;
+  --text-faint: #7c7a75;
+
+  --focus-ring: #ffd166;
+  --success: #6fcf97;
+  --danger: #f28b82;
+
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  --shadow-spot: 0 0 0 1px var(--border), 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-void);
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(232, 163, 61, 0.08), transparent 60%);
+  background-repeat: no-repeat;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--accent-spotlight-strong);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============ Acessibilidade: foco visível sempre ============ */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* Link "pular para o conteúdo" — visível apenas ao ganhar foco por teclado */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -60px;
+  background: var(--accent-spotlight);
+  color: #1a1305;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  z-index: 100;
+  transition: top 0.15s ease;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============ Layout utilitário ============ */
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+main {
+  flex: 1;
+}
+
+/* ============ Botões ============ */
+.botao {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+  min-height: 44px;
+}
+
+.botao:hover {
+  transform: translateY(-1px);
+}
+
+.botao-primario {
+  background: var(--accent-spotlight);
+  color: #1a1305;
+}
+
+.botao-primario:hover {
+  background: var(--accent-spotlight-strong);
+}
+
+.botao-secundario {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.botao-secundario:hover {
+  border-color: var(--accent-spotlight);
+}
+
+.botao:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============ Cartões / painéis ============ */
+.painel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* ============ Formulários ============ */
+.campo {
+  margin-bottom: 1.25rem;
+}
+
+.campo label,
+.campo legend {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+.campo .dica {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  margin-top: 0.3rem;
+}
+
+.campo input[type='text'],
+.campo input[type='email'],
+.campo input[type='tel'],
+.campo input[type='number'],
+.campo textarea,
+.campo select {
+  width: 100%;
+  background: var(--bg-void);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  min-height: 44px;
+}
+
+.campo textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.checkbox-linha {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.checkbox-linha:last-child {
+  border-bottom: none;
+}
+
+.checkbox-linha input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin-top: 0.15rem;
+  accent-color: var(--accent-spotlight);
+  flex-shrink: 0;
+}
+
+.checkbox-linha label {
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.erro-campo {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.alerta {
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid;
+}
+
+.alerta-sucesso {
+  background: rgba(111, 207, 151, 0.1);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.alerta-erro {
+  background: rgba(242, 139, 130, 0.1);
+  border-color: var(--danger);
+  color: var(--danger);
+}
